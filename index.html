@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7c6ed6">
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="landing-page">
+    <nav class="landing-nav">
+      <div class="landing-logo">
+        <span class="logo-icon">&#10003;</span>
+        <div>
+          <span class="logo-text" i18n="app.name">Habit Tracker</span>
+          <span class="logo-tagline" i18n="app.tagline">Build better habits, one day at a time</span>
+        </div>
+      </div>
+      <div class="landing-nav-actions">
+        <button id="landing-login-btn" class="btn btn-secondary btn-sm" i18n="login">Login</button>
+        <button id="landing-signup-btn" class="btn btn-primary btn-sm" i18n="get.started">Get Started</button>
+        <button id="landing-lang-toggle" class="icon-btn" title="Switch Language">&#127758;</button>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-logo">
+          <span class="hero-icon">&#10003;</span>
+        </div>
+        <h1 class="hero-title"><span i18n="hero.title">Build Habits That</span> <span class="gradient-text" i18n="hero.title.stick">Stick</span></h1>
+        <p class="hero-subtitle" i18n="hero.subtitle">Track, measure, and improve your daily habits with intelligent insights, gamification, and personalized coaching.</p>
+        <div class="hero-actions">
+          <button id="hero-get-started" class="btn btn-primary btn-lg" i18n="get.started">Get Started Free</button>
+          <button id="hero-learn-more" class="btn btn-secondary btn-lg" i18n="learn.more">Learn More</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="hero-stat-num">18</span><span class="hero-stat-label" i18n="hero.badges">Achievement Badges</span></div>
+          <div class="hero-stat"><span class="hero-stat-num">40+</span><span class="hero-stat-label" i18n="hero.quotes">Motivational Quotes</span></div>
+          <div class="hero-stat"><span class="hero-stat-num">AI</span><span class="hero-stat-label" i18n="hero.smart.coach">Smart Coach</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <h2 class="section-title"><span i18n="features.title">Everything You Need to</span> <span class="gradient-text" i18n="features.title.highlight">Succeed</span></h2>
+      <p class="section-subtitle" i18n="features.subtitle">Powerful tools to help you build and maintain life-changing habits</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128203;</div>
+          <h3 class="feature-title" i18n="feature.checkins">Daily Check-ins</h3>
+          <p class="feature-desc" i18n="feature.checkins.desc">One-tap check-ins make it effortless to track your habits every day. Build momentum with consistency.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128200;</div>
+          <h3 class="feature-title" i18n="feature.analytics">Smart Analytics</h3>
+          <p class="feature-desc" i18n="feature.analytics.desc">Visual progress charts, weekly and monthly reports, and detailed statistics to measure your growth.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#129302;</div>
+          <h3 class="feature-title" i18n="feature.coach">AI Habit Coach</h3>
+          <p class="feature-desc" i18n="feature.coach.desc">Personalized insights, smart suggestions, and adaptive motivation based on your unique patterns.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#127941;</div>
+          <h3 class="feature-title" i18n="feature.gamification">Gamification</h3>
+          <p class="feature-desc" i18n="feature.gamification.desc">Earn badges, build streaks, and challenge yourself with achievement milestones along your journey.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128197;</div>
+          <h3 class="feature-title" i18n="feature.calendar">Calendar Heatmap</h3>
+          <p class="feature-desc" i18n="feature.calendar.desc">Visualize your consistency with a GitHub-style activity heatmap showing your daily progress.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#127769;</div>
+          <h3 class="feature-title" i18n="feature.theme">Dark & Light Mode</h3>
+          <p class="feature-desc" i18n="feature.theme.desc">Choose your preferred theme with smooth transitions between dark and light interfaces.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="auth-section" class="auth-section">
+      <h2 class="section-title"><span i18n="start.journey">Start Your</span> <span class="gradient-text" i18n="start.journey.highlight">Journey</span></h2>
+      <p class="section-subtitle" i18n="start.journey.subtitle">Create an account or log in to begin tracking your habits</p>
+      <div class="auth-container">
+        <div class="auth-tabs">
+          <button id="auth-login-tab" class="auth-tab active" i18n="login">Login</button>
+          <button id="auth-signup-tab" class="auth-tab" i18n="signup">Sign Up</button>
+        </div>
+        <form id="landing-login-form" class="auth-form">
+          <div class="form-group">
+            <label for="landing-login-email" i18n="email.or.username">Email or Username</label>
+            <input type="text" id="landing-login-email" class="form-input" placeholder="Enter email or username" autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label for="landing-login-password" i18n="password">Password</label>
+            <input type="password" id="landing-login-password" class="form-input" placeholder="Enter password" autocomplete="current-password">
+          </div>
+          <div id="landing-login-error" class="auth-error hidden"></div>
+          <button type="submit" class="btn btn-primary btn-block" i18n="login">Login</button>
+          <p class="auth-hint"><span i18n="auth.hint.login">Don't have an account?</span> <a href="#" id="landing-switch-signup" i18n="signup">Sign up</a></p>
+        </form>
+        <form id="landing-signup-form" class="auth-form hidden">
+          <div class="form-group">
+            <label for="landing-signup-username" i18n="username">Username</label>
+            <input type="text" id="landing-signup-username" class="form-input" placeholder="3-20 characters" autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label for="landing-signup-email" i18n="email">Email</label>
+            <input type="email" id="landing-signup-email" class="form-input" placeholder="your@email.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="landing-signup-password" i18n="password">Password</label>
+            <input type="password" id="landing-signup-password" class="form-input" placeholder="At least 4 characters" autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label for="landing-signup-confirm" i18n="confirm.password">Confirm Password</label>
+            <input type="password" id="landing-signup-confirm" class="form-input" placeholder="Confirm password">
+          </div>
+          <div id="landing-signup-error" class="auth-error hidden"></div>
+          <button type="submit" class="btn btn-primary btn-block" i18n="create.account">Create Account</button>
+          <p class="auth-hint"><span i18n="auth.hint.signup">Already have an account?</span> <a href="#" id="landing-switch-login" i18n="login">Log in</a></p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="landing-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-icon">&#10003;</span>
+          <span class="logo-text" i18n="app.name">Habit Tracker</span>
+        </div>
+        <p class="footer-tagline" i18n="footer.tagline">Build better habits, one day at a time.</p>
+        <p class="footer-copy" i18n="footer.copyright">&copy; 2026 Habit Tracker. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <div id="app" class="hidden">
+    <header id="header">
+      <div id="logo">
+        <span class="logo-icon">&#10003;</span>
+        <div>
+          <span class="logo-text" i18n="app.name">Habit Tracker</span>
+          <span class="logo-tagline" i18n="app.tagline.short">Build better habits</span>
+        </div>
+      </div>
+      <div id="header-actions">
+        <span id="user-display" class="user-display hidden"></span>
+        <button id="logout-btn" class="icon-btn hidden" title="Logout">&#128682;</button>
+        <button id="lang-toggle" class="icon-btn" title="Switch Language">&#127758;</button>
+        <button id="add-habit-header-btn" class="btn btn-primary btn-sm">&#65291; <span i18n="add.habit">Add Habit</span></button>
+        <button id="notif-toggle" class="icon-btn" title="Notifications OFF">&#128277;</button>
+        <button id="badge-btn" class="icon-btn" title="Badges">&#127941;</button>
+        <button id="settings-btn" class="icon-btn" title="Settings">&#9881;&#65039;</button>
+        <button id="theme-toggle" class="icon-btn" title="Toggle Theme">&#127769;</button>
+      </div>
+    </header>
+
+    <div id="ai-coach-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content modal-lg">
+        <div class="modal-header">
+          <h2 class="modal-title">&#129302; <span i18n="ai.coach">AI Habit Coach</span></h2>
+        </div>
+        <div class="coach-tabs">
+          <button class="coach-tab active" data-coach-view="overview" i18n="overview">Overview</button>
+          <button class="coach-tab" data-coach-view="weekly" i18n="weekly.review">Weekly Review</button>
+          <button class="coach-tab" data-coach-view="monthly" i18n="monthly.review">Monthly Review</button>
+        </div>
+        <div id="coach-overview" class="coach-panel active">
+          <div id="coach-insights" class="coach-insights"></div>
+          <h3 class="coach-section-title">&#128161; <span i18n="suggestions">Suggestions</span></h3>
+          <div id="coach-suggestions" class="coach-suggestions"></div>
+          <h3 class="coach-section-title">&#10071; <span i18n="coach.message">Coach's Message</span></h3>
+          <div id="coach-quote" class="coach-quote-card"></div>
+        </div>
+        <div id="coach-weekly" class="coach-panel">
+          <div id="weekly-report" class="report-container"></div>
+        </div>
+        <div id="coach-monthly" class="coach-panel">
+          <div id="monthly-report" class="report-container"></div>
+        </div>
+        <button class="btn btn-secondary modal-close-btn" data-modal="ai-coach-modal" i18n="close">Close</button>
+      </div>
+    </div>
+
+    <div id="badge-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">&#127941; <span i18n="badges">Badges</span></h2>
+        </div>
+        <div id="badge-grid" class="badge-grid"></div>
+        <button class="btn btn-secondary modal-close-btn" data-modal="badge-modal" i18n="close">Close</button>
+      </div>
+    </div>
+
+    <div id="settings-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">&#9881;&#65039; <span i18n="settings.title">Settings</span></h2>
+        </div>
+        <div class="settings-section">
+          <h3 class="settings-section-title">&#128100; <span i18n="account">Account</span></h3>
+          <div class="settings-row">
+            <span class="settings-label" i18n="username">Username</span>
+            <span id="settings-username" class="settings-value">-</span>
+          </div>
+          <div class="settings-row">
+            <span class="settings-label" i18n="email">Email</span>
+            <span id="settings-email" class="settings-value">-</span>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h3 class="settings-section-title">&#127912; <span i18n="appearance">Appearance</span></h3>
+          <div class="settings-row">
+            <span class="settings-label" i18n="dark.mode">Dark Mode</span>
+            <label class="toggle">
+              <input type="checkbox" id="settings-theme-toggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h3 class="settings-section-title">&#128344; <span i18n="daily.schedule">Daily Schedule</span></h3>
+          <div class="settings-row">
+            <span class="settings-label" i18n="wake.time">Wake Up Time</span>
+            <input type="time" id="settings-wake-time" class="form-input" style="width:auto;padding:6px 10px" value="07:00">
+          </div>
+          <div class="settings-row">
+            <span class="settings-label" i18n="sleep.time">Sleep Time</span>
+            <input type="time" id="settings-sleep-time" class="form-input" style="width:auto;padding:6px 10px" value="23:00">
+          </div>
+          <p class="settings-hint" i18n="schedule.hint">Incomplete habits will be reminded hourly during waking hours, and all remaining habits will be notified before sleep time.</p>
+          <button id="settings-save-schedule" class="btn btn-primary btn-sm" style="width:100%;margin-top:8px" i18n="save.schedule">Save Schedule</button>
+        </div>
+        <div class="settings-section">
+          <h3 class="settings-section-title">&#128276; <span i18n="notifications">Notifications</span></h3>
+          <div class="settings-row">
+            <span class="settings-label" i18n="daily.reminders">Daily Reminders</span>
+            <label class="toggle">
+              <input type="checkbox" id="settings-notif-toggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <p class="settings-hint" i18n="reminders.hint">Get hourly reminders for incomplete habits during waking hours</p>
+        </div>
+        <div class="settings-section">
+          <h3 class="settings-section-title">&#128202; <span i18n="analytics.short">Analytics</span></h3>
+          <div class="settings-links">
+            <button id="settings-stats-btn" class="btn btn-secondary btn-block">&#128202; <span i18n="view.statistics">View Statistics</span></button>
+            <button id="settings-cal-btn" class="btn btn-secondary btn-block">&#128197; <span i18n="view.calendar">View Calendar Heatmap</span></button>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h3 class="settings-section-title">&#128190; <span i18n="data">Data</span></h3>
+          <button id="settings-clear-btn" class="btn btn-danger btn-block" i18n="clear.all.data">Clear All Data</button>
+        </div>
+        <button class="btn btn-secondary modal-close-btn" data-modal="settings-modal" i18n="close">Close</button>
+      </div>
+    </div>
+
+    <div id="app-body">
+      <aside id="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-btn active" data-view="home">
+            <span class="sidebar-btn-icon">&#127968;</span>
+            <span class="sidebar-btn-label" i18n="home">Home</span>
+          </div>
+          <div class="sidebar-btn" data-view="analytics">
+            <span class="sidebar-btn-icon">&#128202;</span>
+            <span class="sidebar-btn-label" i18n="analytics">Analytics</span>
+          </div>
+        </div>
+        <div class="sidebar-section">
+          <span class="sidebar-section-title" i18n="categories">Categories</span>
+          <div class="sidebar-btn sidebar-cat" data-view="fitness">
+            <span class="sidebar-btn-icon">&#128170;</span>
+            <span class="sidebar-btn-label" i18n="fitness">Fitness</span>
+          </div>
+          <div class="sidebar-btn sidebar-cat" data-view="study">
+            <span class="sidebar-btn-icon">&#128218;</span>
+            <span class="sidebar-btn-label" i18n="study">Study</span>
+          </div>
+          <div class="sidebar-btn sidebar-cat" data-view="health">
+            <span class="sidebar-btn-icon">&#129367;</span>
+            <span class="sidebar-btn-label" i18n="health">Health</span>
+          </div>
+          <div class="sidebar-btn sidebar-cat" data-view="mindfulness">
+            <span class="sidebar-btn-icon">&#129760;</span>
+            <span class="sidebar-btn-label" i18n="mindfulness">Mindfulness</span>
+          </div>
+          <div class="sidebar-btn sidebar-cat" data-view="finance">
+            <span class="sidebar-btn-icon">&#128176;</span>
+            <span class="sidebar-btn-label" i18n="finance">Finance</span>
+          </div>
+        </div>
+      </aside>
+      <main id="main-content">
+        <div id="home-view">
+          <nav class="nav-pills">
+            <button class="nav-pill active" data-view="all" i18n="all">All</button>
+            <button class="nav-pill" data-view="today" i18n="today">Today</button>
+            <button class="nav-pill" data-view="weekly" i18n="weekly">Weekly</button>
+            <button class="nav-pill" data-view="monthly" i18n="monthly">Monthly</button>
+          </nav>
+
+          <div id="quote-bar" class="quote-bar hidden">
+            <span class="quote-icon">&#10071;</span>
+            <div class="quote-content">
+              <p class="quote-text" id="quote-text">Start your habit journey today!</p>
+              <p class="quote-author" id="quote-author"></p>
+            </div>
+          </div>
+
+          <section id="dashboard">
+            <div class="stat-card" id="stat-total">
+              <span class="stat-number" id="stat-total-num">0</span>
+              <span class="stat-label">Total Habits</span>
+            </div>
+            <div class="stat-card" id="stat-today">
+              <span class="stat-number" id="stat-today-num">0</span>
+              <span class="stat-label">Today's Check-ins</span>
+            </div>
+            <div class="stat-card" id="stat-streak">
+              <span class="stat-number" id="stat-streak-num">0</span>
+              <span class="stat-label">Best Streak</span>
+            </div>
+            <div class="stat-card" id="stat-completion">
+              <span class="stat-number" id="stat-completion-num">0%</span>
+              <span class="stat-label">Avg Completion</span>
+            </div>
+            <div class="stat-card" id="stat-checkins">
+              <span class="stat-number" id="stat-checkins-num">0</span>
+              <span class="stat-label">Total Check-ins</span>
+            </div>
+            <div class="stat-card" id="stat-badges">
+              <span class="stat-number" id="stat-badges-num">0</span>
+              <span class="stat-label">Badges Earned</span>
+            </div>
+          </section>
+
+          <div class="page-actions">
+            <button id="add-habit-page-btn" class="btn btn-primary btn-block">&#65291; <span i18n="add.new.habit">Add New Habit</span></button>
+          </div>
+
+          <section id="habit-list">
+          <div id="empty-state" class="empty-state">
+            <span class="empty-icon" style="font-size:4rem">&#128203;</span>
+            <p class="empty-title" style="font-size:1.125rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px"><span i18n="empty.title">Start building your first habit today!</span></p>
+            <p class="empty-text" style="font-size:0.875rem;max-width:300px;margin-bottom:12px" i18n="empty.text">"Small daily actions create big results."</p>
+            <button id="empty-add-btn" class="btn btn-primary"><span i18n="empty.btn">+ Create Your First Habit</span></button>
+          </div>
+          </section>
+        </div>
+
+        <div id="category-view" class="hidden">
+          <section id="category-habit-list"></section>
+        </div>
+
+        <section id="analytics-page" class="hidden">
+          <div class="analytics-header">
+            <h2 class="analytics-title">&#128202; <span i18n="analytics.dashboard">Analytics Dashboard</span></h2>
+            <p class="analytics-subtitle" i18n="analytics.subtitle">Your progress at a glance</p>
+          </div>
+          <div class="analytics-selector">
+            <label i18n="habit.name">Habit</label>
+            <select id="analytics-habit-select" class="stats-habit-select"></select>
+          </div>
+          <div class="analytics-tabs">
+            <button class="analytics-tab active" data-analytics-view="stats" i18n="statistics">Statistics</button>
+            <button class="analytics-tab" data-analytics-view="calendar" i18n="calendar.heatmap">Calendar Heatmap</button>
+          </div>
+          <div id="analytics-stats" class="analytics-panel active">
+            <div class="analytics-stats-tabs">
+              <button class="a-stats-tab active" data-a-period="weekly" i18n="weekly">Weekly</button>
+              <button class="a-stats-tab" data-a-period="monthly" i18n="monthly">Monthly</button>
+            </div>
+            <p class="stats-percentage" id="a-weekly-percent">0%</p>
+            <p class="stats-percentage-label" id="a-weekly-label" i18n="this.week">This Week</p>
+            <div class="chart-container">
+              <canvas id="a-weekly-chart"></canvas>
+            </div>
+            <div id="a-weekly-breakdown" class="stats-breakdown"></div>
+            <p class="stats-percentage" id="a-monthly-percent" style="display:none">0%</p>
+            <p class="stats-percentage-label" id="a-monthly-label" style="display:none" i18n="this.month">This Month</p>
+            <div class="chart-container">
+              <canvas id="a-monthly-chart" style="display:none"></canvas>
+            </div>
+            <div id="a-monthly-summary" class="stats-breakdown" style="display:none"></div>
+            <div class="analytics-overall">
+              <h3 i18n="overall">Overall</h3>
+              <div class="overall-grid">
+                <div class="overall-item">
+                  <span class="overall-number" id="a-total-checkins">0</span>
+                  <span class="overall-label" i18n="stat.checkins">Total Check-ins</span>
+                </div>
+                <div class="overall-item">
+                  <span class="overall-number" id="a-current-streak">0</span>
+                  <span class="overall-label" i18n="current.streak">Current Streak</span>
+                </div>
+                <div class="overall-item">
+                  <span class="overall-number" id="a-longest-streak">0</span>
+                  <span class="overall-label" i18n="longest.streak">Longest Streak</span>
+                </div>
+                <div class="overall-item">
+                  <span class="overall-number" id="a-best-day">-</span>
+                  <span class="overall-label" i18n="best.day">Best Day</span>
+                </div>
+                <div class="overall-item">
+                  <span class="overall-number" id="a-alltime-rate">0%</span>
+                  <span class="overall-label" i18n="completion.rate">Completion Rate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="analytics-calendar" class="analytics-panel">
+            <div class="cal-nav">
+              <button id="a-cal-prev" class="btn btn-secondary" i18n="prev.year">&larr; Prev Year</button>
+              <span id="a-cal-year" class="cal-year-display">2026</span>
+              <button id="a-cal-next" class="btn btn-secondary" i18n="next.year">Next Year &rarr;</button>
+            </div>
+            <div id="a-calendar-heatmap" class="calendar-heatmap"></div>
+            <div class="cal-legend">
+              <span class="legend-label" i18n="less">Less</span>
+              <span class="legend-cell" style="background:#ebedf0"></span>
+              <span class="legend-cell" style="background:#c6e48b"></span>
+              <span class="legend-cell" style="background:#7bc96f"></span>
+              <span class="legend-cell" style="background:#239a3b"></span>
+              <span class="legend-cell" style="background:#196127"></span>
+              <span class="legend-cell" style="background:#0d4d0d"></span>
+              <span class="legend-label" i18n="more">More</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+
+    <div id="habit-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <h2 class="modal-title" id="modal-title" i18n="new.habit">New Habit</h2>
+        <form id="habit-form">
+          <input type="hidden" id="edit-id" value="">
+          <div class="form-group">
+            <label for="habit-name" i18n="habit.name">Name</label>
+            <div class="habit-name-row">
+              <input type="text" id="habit-name" required placeholder="e.g. Read 30 minutes">
+              <button type="button" id="scan-qr-btn" class="btn btn-sm btn-secondary" title="Scan QR code">📷</button>
+              <button type="button" id="upload-img-btn" class="btn btn-sm btn-secondary" title="Upload image to extract text">📄</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label i18n="habit.icon">Icon</label>
+            <div id="habit-icon-select" class="icon-picker"></div>
+          </div>
+          <div class="form-group">
+            <label for="habit-desc" i18n="habit.desc">Description</label>
+            <textarea id="habit-desc" placeholder="Optional description" rows="2"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="habit-freq" i18n="habit.frequency">Frequency</label>
+              <select id="habit-freq">
+                <option value="daily" i18n="habit.daily">Daily</option>
+                <option value="weekly" i18n="habit.weekly">Weekly</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="habit-target" i18n="habit.target">Target Count</label>
+              <input type="number" id="habit-target" min="1" value="1">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="form-group" style="margin-bottom:0">
+                <label for="habit-reminder-time" i18n="habit.reminder">Reminder Time</label>
+                <input type="time" id="habit-reminder-time" class="form-input">
+              </div>
+              <div class="form-group" style="margin-bottom:0;padding-top:24px">
+                <label class="toggle-label">
+                  <input type="checkbox" id="habit-has-time">
+                  <span i18n="habit.set.reminder">Set reminder time</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label i18n="habit.color">Color</label>
+            <div id="habit-color">
+              <label class="color-option">
+                <input type="radio" name="color" value="#4CAF50" checked>
+                <span class="color-swatch" style="background:#4CAF50"></span>
+              </label>
+              <label class="color-option">
+                <input type="radio" name="color" value="#2196F3">
+                <span class="color-swatch" style="background:#2196F3"></span>
+              </label>
+              <label class="color-option">
+                <input type="radio" name="color" value="#FF9800">
+                <span class="color-swatch" style="background:#FF9800"></span>
+              </label>
+              <label class="color-option">
+                <input type="radio" name="color" value="#E91E63">
+                <span class="color-swatch" style="background:#E91E63"></span>
+              </label>
+              <label class="color-option">
+                <input type="radio" name="color" value="#9C27B0">
+                <span class="color-swatch" style="background:#9C27B0"></span>
+              </label>
+              <label class="color-option">
+                <input type="radio" name="color" value="#00BCD4">
+                <span class="color-swatch" style="background:#00BCD4"></span>
+              </label>
+              <label class="color-option">
+                <input type="radio" name="color" value="#FF5722">
+                <span class="color-swatch" style="background:#FF5722"></span>
+              </label>
+              <label class="color-option">
+                <input type="radio" name="color" value="#607D8B">
+                <span class="color-swatch" style="background:#607D8B"></span>
+              </label>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button type="button" id="modal-cancel" class="btn btn-secondary" i18n="cancel">Cancel</button>
+            <button type="submit" id="modal-save" class="btn btn-primary" i18n="save">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="calendar-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content modal-lg">
+        <h2 class="modal-title" i18n="activity.calendar">Activity Calendar</h2>
+        <div class="cal-nav">
+          <button id="cal-prev" class="btn btn-secondary" i18n="prev.year">&larr; Prev Year</button>
+          <span id="cal-year" class="cal-year-display">2026</span>
+          <button id="cal-next" class="btn btn-secondary" i18n="next.year">Next Year &rarr;</button>
+        </div>
+        <div id="calendar-heatmap" class="calendar-heatmap"></div>
+        <div class="cal-legend">
+          <span class="legend-label" i18n="less">Less</span>
+          <span class="legend-cell" style="background:#ebedf0"></span>
+          <span class="legend-cell" style="background:#c6e48b"></span>
+          <span class="legend-cell" style="background:#7bc96f"></span>
+          <span class="legend-cell" style="background:#239a3b"></span>
+          <span class="legend-cell" style="background:#196127"></span>
+          <span class="legend-label" i18n="more">More</span>
+        </div>
+        <button class="btn btn-secondary modal-close-btn" data-modal="calendar-modal" i18n="close">Close</button>
+      </div>
+    </div>
+
+    <div id="stats-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content modal-lg">
+        <h2 class="modal-title" i18n="statistics">Statistics</h2>
+        <div class="stats-selector">
+          <select id="stats-habit-select" class="stats-habit-select"></select>
+        </div>
+        <div class="stats-tabs">
+          <button id="stats-weekly-tab" class="stats-tab active" data-period="weekly" i18n="weekly">Weekly</button>
+          <button id="stats-monthly-tab" class="stats-tab" data-period="monthly" i18n="monthly">Monthly</button>
+        </div>
+        <div id="stats-weekly" class="stats-panel active">
+          <p class="stats-percentage" id="weekly-percent">0%</p>
+          <p class="stats-percentage-label" i18n="this.week">This Week</p>
+          <div class="chart-container">
+            <canvas id="weekly-chart"></canvas>
+          </div>
+          <div id="weekly-breakdown" class="stats-breakdown"></div>
+        </div>
+        <div id="stats-monthly" class="stats-panel hidden">
+          <p class="stats-percentage" id="monthly-percent">0%</p>
+          <p class="stats-percentage-label" i18n="this.month">This Month</p>
+          <div class="chart-container">
+            <canvas id="monthly-chart"></canvas>
+          </div>
+          <div id="monthly-summary" class="stats-breakdown"></div>
+        </div>
+        <div id="stats-overall" class="stats-overall">
+          <h3 i18n="overall">Overall</h3>
+          <div class="overall-grid">
+            <div class="overall-item">
+              <span class="overall-number" id="stats-total-checkins">0</span>
+              <span class="overall-label" i18n="stat.checkins">Total Check-ins</span>
+            </div>
+            <div class="overall-item">
+              <span class="overall-number" id="stats-current-streak">0</span>
+              <span class="overall-label" i18n="current.streak">Current Streak</span>
+            </div>
+            <div class="overall-item">
+              <span class="overall-number" id="stats-longest-streak">0</span>
+              <span class="overall-label" i18n="longest.streak">Longest Streak</span>
+            </div>
+            <div class="overall-item">
+              <span class="overall-number" id="stats-best-day">-</span>
+              <span class="overall-label" i18n="best.day">Best Day</span>
+            </div>
+            <div class="overall-item">
+              <span class="overall-number" id="stats-alltime-rate">0%</span>
+              <span class="overall-label" i18n="completion.rate">Completion Rate</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-secondary modal-close-btn" data-modal="stats-modal" i18n="close">Close</button>
+      </div>
+    </div>
+
+    <div id="detail-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="detail-name">Habit Name</h2>
+        </div>
+        <div class="detail-stats">
+          <div class="detail-stat">
+            <span class="detail-stat-number" id="detail-current-streak">0</span>
+            <span class="detail-stat-label" i18n="current.streak">Current Streak</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-number" id="detail-longest-streak">0</span>
+            <span class="detail-stat-label" i18n="longest.streak">Longest Streak</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-number" id="detail-total-checkins">0</span>
+            <span class="detail-stat-label" i18n="total.checkins">Total Check-ins</span>
+          </div>
+        </div>
+        <div id="detail-history" class="detail-history"></div>
+        <div class="modal-actions">
+          <button id="detail-edit" class="btn btn-primary" i18n="edit">Edit</button>
+          <button id="detail-delete" class="btn btn-danger" i18n="delete">Delete</button>
+          <button class="btn btn-secondary modal-close-btn" data-modal="detail-modal" i18n="close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+  </div>
+
+  <!-- Chatbot Widget -->
+  <div id="scanner-overlay" class="hidden">
+    <div class="scanner-backdrop"></div>
+    <div class="scanner-box">
+      <h3 class="scanner-title">📷 Point camera at QR code</h3>
+      <video id="scanner-video" class="scanner-video" autoplay playsinline></video>
+      <button type="button" id="scanner-close" class="btn btn-secondary btn-block">Cancel</button>
+    </div>
+  </div>
+
+  <div id="chatbot-widget">
+    <button id="chatbot-toggle" class="chatbot-toggle" i18n-title="ai.assistant" title="AI Assistant">&#129302;</button>
+    <div id="chatbot-window" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <span class="chatbot-header-icon">&#129302;</span>
+        <span class="chatbot-header-title" i18n="ai.assistant">AI Habit Assistant</span>
+        <button id="chatbot-close" class="chatbot-close">&times;</button>
+      </div>
+      <div id="chatbot-messages" class="chatbot-messages"></div>
+      <div class="chatbot-suggestions" id="chatbot-suggestions"></div>
+      <div class="chatbot-input-area">
+        <input type="text" id="chatbot-input" i18n-placeholder="ask.anything" placeholder="Ask me anything..." autocomplete="off">
+        <button id="chatbot-voice" class="chatbot-voice-btn" title="Voice input">&#127908;</button>
+        <button id="chatbot-send" class="chatbot-send">&#10148;</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/habits.js"></script>
+  <script src="js/badges.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/aiCoach.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/scanner.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
